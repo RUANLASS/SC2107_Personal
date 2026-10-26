@@ -9,16 +9,16 @@ CMD_SRCS += \
 ../msp432p401r.cmd 
 
 C_SRCS += \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/Bump.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/Clock.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/CortexM.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Bump.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Clock.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/CortexM.c \
 ../Lab3_Timersmain.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/LaunchPad.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/Motor.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/PWM.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/Reflectance.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/TExaS.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/TimerA1.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/LaunchPad.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Motor.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/PWM.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Reflectance.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TExaS.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TimerA1.c \
 ../startup_msp432p401r_ccs.c \
 ../system_msp432p401r.c 
 
@@ -79,16 +79,16 @@ C_DEPS__QUOTED += \
 "system_msp432p401r.d" 
 
 C_SRCS__QUOTED += \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/Bump.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/Clock.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/CortexM.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Bump.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Clock.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/CortexM.c" \
 "../Lab3_Timersmain.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/LaunchPad.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/Motor.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/PWM.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/Reflectance.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/TExaS.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/TimerA1.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/LaunchPad.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Motor.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/PWM.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Reflectance.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TExaS.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TimerA1.c" \
 "../startup_msp432p401r_ccs.c" \
 "../system_msp432p401r.c" 
 

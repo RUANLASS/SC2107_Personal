@@ -9,17 +9,17 @@ CMD_SRCS += \
 ../msp432p401r.cmd 
 
 C_SRCS += \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/Bump.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/Clock.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/CortexM.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Bump.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Clock.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/CortexM.c \
 ../Lab4_Tachmain.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/LaunchPad.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/Motor.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/PWM.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/SysTick.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/TA3InputCapture.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/TExaS.c \
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/UART0.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/LaunchPad.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Motor.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/PWM.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/SysTick.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TA3InputCapture.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TExaS.c \
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/UART0.c \
 ../startup_msp432p401r_ccs.c \
 ../system_msp432p401r.c 
 
@@ -84,17 +84,17 @@ C_DEPS__QUOTED += \
 "system_msp432p401r.d" 
 
 C_SRCS__QUOTED += \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/Bump.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/Clock.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/CortexM.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Bump.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Clock.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/CortexM.c" \
 "../Lab4_Tachmain.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/LaunchPad.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/Motor.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/PWM.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/SysTick.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/TA3InputCapture.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/TExaS.c" \
-"D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/UART0.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/LaunchPad.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Motor.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/PWM.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/SysTick.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TA3InputCapture.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TExaS.c" \
+"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/UART0.c" \
 "../startup_msp432p401r_ccs.c" \
 "../system_msp432p401r.c" 
 

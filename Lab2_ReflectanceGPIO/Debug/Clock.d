@@ -1,6 +1,6 @@
 # FIXED
 
-Clock.obj: D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/Clock.c
+Clock.obj: C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Clock.c
 Clock.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.6.LTS/include/stdint.h
 Clock.obj: C:/ti/ccsv7/ccs_base/arm/include/msp.h
 Clock.obj: C:/ti/ccsv7/ccs_base/arm/include/msp432p401r.h
@@ -11,7 +11,7 @@ Clock.obj: C:/ti/ccsv7/ccs_base/arm/include/CMSIS/core_cm4.h
 Clock.obj: C:/ti/ccsv7/ccs_base/arm/include/CMSIS/cmsis_compiler.h
 Clock.obj: C:/ti/ccsv7/ccs_base/arm/include/system_msp432p401r.h
 
-D:/RSLK-Max-SC2107Labs-students-08072026/SC2107/inc/Clock.c: 
+C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Clock.c: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.6.LTS/include/stdint.h: 
 C:/ti/ccsv7/ccs_base/arm/include/msp.h: 
 C:/ti/ccsv7/ccs_base/arm/include/msp432p401r.h: 

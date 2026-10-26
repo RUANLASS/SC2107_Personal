@@ -57,7 +57,7 @@ void SysTick_Handler(void){ // every 1ms
     }
     else if (count==1) {
         reflectance_data =  Reflectance_End();
-        //bump_data = Bump_Read();
+        bump_data = Bump_Read();
     }
     count++;
     if(count==10)count=0;
