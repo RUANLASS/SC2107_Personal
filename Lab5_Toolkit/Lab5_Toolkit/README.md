@@ -4,9 +4,6 @@ A CCS project that builds on your own Lab1–4 drivers in `../inc`. It gives you
 
 > **None of this has been run on a robot yet.** It compiles and links with an ARM compiler against the MSP432 headers, but the timing, turns, IR tables and line-follow gain have to be tuned on **your** RSLK. Do the checklist below before week 11.
 
-## Notes for the day
-The `notes/` folder has the reference sheets for assessment day. Start with `notes/00_INDEX.md`: it covers the day-of procedure, hardware map, API, task recipes, registers and interrupts, number conversion with a 0–63 table, your calibration record, and troubleshooting.
-
 ## Import into CCS
 1. Copy this `Lab5_Toolkit` folder into your SC2107 workspace, next to `inc/`. The folders must be siblings: the project links to `../inc/*.c`.
 2. Use the updated `inc/` files too (see *Driver fixes*).
