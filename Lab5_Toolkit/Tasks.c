@@ -657,3 +657,19 @@ void Task_H10_NumberEntryDrive(void){
   Move_mm((int32_t)value * 10, SPEED_MED, 0);
   Ser_Str("Drove "); Ser_SDec(Tach_DistanceMM()); Ser_Str(" mm"); Ser_NL();
 }
+
+
+
+// =========================================================================
+//                                 PRACTICE H-TASKS 27/10
+// =========================================================================
+void Task401_ObstacleCount(){}
+void Task402_WallFollow(){}
+void Task403_RotateScan(){}
+void Task404_StateMach(){}
+void Task405_BumpMode(){}
+void Task406_Boundary(){}
+void Task407_Password(){}
+void Task408_LED_UDC(){}
+void Task409_SumDiff(){}
+void Task410_NumDrive(){}

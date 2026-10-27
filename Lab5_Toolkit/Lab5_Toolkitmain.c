@@ -55,6 +55,16 @@ static const TaskEntry Table[] = {
   {208, Task_H8_LineBumpOverride,   0},
   {209, Task_H9_Parking,            0},
   {210, Task_H10_NumberEntryDrive,  0},
+  {401, Task401_ObstacleCount, 0},
+  {402, Task402_WallFollow, 0},
+  {403, Task403_RotateScan, 0},
+  {404, Task404_StateMach, 0},
+  {405, Task405_BumpMode, 0},
+  {406, Task406_Boundary, 0},
+  {407, Task407_Password, 0},
+  {408, Task408_LED_UDC, 0},
+  {409, Task409_SumDiff, 0},
+  {410, Task410_NumDrive, 0}
 };
 
 int main(void){

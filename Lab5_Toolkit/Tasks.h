@@ -34,4 +34,15 @@ void Task_H8_LineBumpOverride(void);
 void Task_H9_Parking(void);
 void Task_H10_NumberEntryDrive(void);
 
+void Task401_ObstacleCount(){}
+void Task402_WallFollow(){}
+void Task403_RotateScan(){}
+void Task404_StateMach(){}
+void Task405_BumpMode(){}
+void Task406_Boundary(){}
+void Task407_Password(){}
+void Task408_LED_UDC(){}
+void Task409_SumDiff(){}
+void Task410_NumDrive(){}
+
 #endif
