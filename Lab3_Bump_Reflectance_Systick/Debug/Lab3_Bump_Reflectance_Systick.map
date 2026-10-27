@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v16.9.6                     
 ******************************************************************************
->> Linked Mon Oct 26 11:48:29 2026
+>> Linked Tue Oct 27 11:13:26 2026
 
 OUTPUT FILE NAME:   <Lab3_Bump_Reflectance_Systick.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 00001221

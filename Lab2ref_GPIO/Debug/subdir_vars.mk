@@ -9,9 +9,9 @@ CMD_SRCS += \
 ../msp432p401r.cmd 
 
 C_SRCS += \
-C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Clock.c \
+C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Clock.c \
 ../GPIOmain.c \
-C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TExaS.c \
+C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TExaS.c \
 ../startup_msp432p401r_ccs.c \
 ../system_msp432p401r.c 
 
@@ -44,9 +44,9 @@ C_DEPS__QUOTED += \
 "system_msp432p401r.d" 
 
 C_SRCS__QUOTED += \
-"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Clock.c" \
+"C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Clock.c" \
 "../GPIOmain.c" \
-"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TExaS.c" \
+"C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TExaS.c" \
 "../startup_msp432p401r_ccs.c" \
 "../system_msp432p401r.c" 
 

@@ -1,6 +1,6 @@
 # FIXED
 
-TimerA1.obj: C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TimerA1.c
+TimerA1.obj: C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TimerA1.c
 TimerA1.obj: C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.6.LTS/include/stdint.h
 TimerA1.obj: C:/ti/ccsv7/ccs_base/arm/include/msp.h
 TimerA1.obj: C:/ti/ccsv7/ccs_base/arm/include/msp432p401r.h
@@ -11,7 +11,7 @@ TimerA1.obj: C:/ti/ccsv7/ccs_base/arm/include/CMSIS/core_cm4.h
 TimerA1.obj: C:/ti/ccsv7/ccs_base/arm/include/CMSIS/cmsis_compiler.h
 TimerA1.obj: C:/ti/ccsv7/ccs_base/arm/include/system_msp432p401r.h
 
-C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TimerA1.c: 
+C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TimerA1.c: 
 C:/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.6.LTS/include/stdint.h: 
 C:/ti/ccsv7/ccs_base/arm/include/msp.h: 
 C:/ti/ccsv7/ccs_base/arm/include/msp432p401r.h: 

@@ -9,15 +9,15 @@ CMD_SRCS += \
 ../msp432p401r.cmd 
 
 C_SRCS += \
-C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/ADC14.c \
-C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Clock.c \
-C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/CortexM.c \
-C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/IRDistance.c \
-C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/LPF.c \
+C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/ADC14.c \
+C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Clock.c \
+C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/CortexM.c \
+C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/IRDistance.c \
+C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/LPF.c \
 ../Lab4_ADCmain.c \
-C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/LaunchPad.c \
-C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TimerA1.c \
-C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/UART0.c \
+C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/LaunchPad.c \
+C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TimerA1.c \
+C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/UART0.c \
 ../startup_msp432p401r_ccs.c \
 ../system_msp432p401r.c 
 
@@ -74,15 +74,15 @@ C_DEPS__QUOTED += \
 "system_msp432p401r.d" 
 
 C_SRCS__QUOTED += \
-"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/ADC14.c" \
-"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Clock.c" \
-"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/CortexM.c" \
-"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/IRDistance.c" \
-"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/LPF.c" \
+"C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/ADC14.c" \
+"C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/Clock.c" \
+"C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/CortexM.c" \
+"C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/IRDistance.c" \
+"C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/LPF.c" \
 "../Lab4_ADCmain.c" \
-"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/LaunchPad.c" \
-"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TimerA1.c" \
-"C:/Users/LAKSHYA002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/UART0.c" \
+"C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/LaunchPad.c" \
+"C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/TimerA1.c" \
+"C:/Users/lakshya002/Downloads/SC2107_Personal-main/SC2107_Personal-main/inc/UART0.c" \
 "../startup_msp432p401r_ccs.c" \
 "../system_msp432p401r.c" 
 
