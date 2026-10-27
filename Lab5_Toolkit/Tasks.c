@@ -777,3 +777,247 @@ void Task409_SumDiff(void){
     }
     Ser_NL();
 }
+
+
+// ParkBox  Drive forward slowly into a three-sided box and stop when the back
+//     wall is PARK_STOP_MM away. Inside the box (both side walls seen) the robot
+//     steers to stay centred between them. Optionally turns 180 to face out.
+// USES    IR sensors (left/centre/right), motors, RGB (green flash at the end)
+// METHOD  polling; the stop needs 3 close centre readings in a row (filters
+//         noise); SW1/SW2 aborts via StopRequested()
+// CALLS   IR_Read, Drive, Stop, Turn_deg, LED_Flash
+// TUNE    PARK_STOP_MM (distance to back wall), PARK_SIDE_SEEN (side wall counts
+//         as seen below this), PARK_TURN_OUT (1 = turn 180 at the end), the
+//         centring gain (r - l) * 4 and its +/-600 limit
+// ASK     how deep/wide the box is, whether to finish facing in or out
+#define PARK_STOP_MM   100   // stop this far from the back wall
+#define PARK_SIDE_SEEN 300   // a side wall closer than this counts as "seen"
+#define PARK_TURN_OUT  0     // 1 = turn 180 at the end to face out
+void Task_ParkBox(void){
+  int32_t l, c, r, corr;
+  uint8_t close = 0;
+  while(close < 3){                              // 3 readings in a row = really there
+    if(StopRequested()) return;
+    IR_Read(&l, &c, &r);
+    if(c <= PARK_STOP_MM){ Stop(); close++; continue; }
+    close = 0;
+    corr = 0;
+    if(l < PARK_SIDE_SEEN && r < PARK_SIDE_SEEN){  // inside the box: centre between walls
+      corr = (r - l) * 4;                        // + = nearer the LEFT wall -> steer right
+      if(corr >  600) corr =  600;
+      if(corr < -600) corr = -600;
+    }
+    Drive(SPEED_SLOW + corr, SPEED_SLOW - corr);
+    Delay_ms(10);
+  }
+  Stop();
+  if(PARK_TURN_OUT){ Delay_ms(300); Turn_deg(180, TURN_SPEED); }
+  LED_Flash(LED_GREEN, 3, 200);
+}
+
+
+// L1 (501) Blink the red LED (2 Hz) only while a black line is under sensor #1.
+// USES    reflectance (sensor #1), LED1
+// METHOD  polling; blink timed from Millis so the loop never blocks
+// CALLS   Line_Read, REF_S(1), LED_Red1
+// PAUSE   main: WaitForStart() before
+// ASK     which sensor is "#1" (right-most = bit0), blink rate
+void L1_BlinkOnSensor1(void){
+  while(!StopRequested()){
+    if(Line_Read() & REF_S(1)) LED_Red1((Millis / 250) & 1);   // 2 Hz blink, no blocking
+    else                       LED_Red1(0);
+    Delay_ms(5);
+  }
+  LED_Red1(0);
+}
+
+// L2 (502) Bump -> RGB LED: red for Bump0-2 (right), blue for Bump3-5 (left),
+//     off when nothing is pressed.
+// USES    bumps, RGB LED
+// METHOD  polling
+// CALLS   Bump_Now, LED_RGB, BUMP_RIGHTSIDE / BUMP_LEFTSIDE
+// PAUSE   main: WaitForStart() before
+// ASK     colour for both sides pressed together (right wins here)
+void L2_BumpSideLED(void){
+  uint8_t b;
+  while(!StopRequested()){
+    b = Bump_Now();
+    if(b & BUMP_RIGHTSIDE)     LED_RGB(LED_RED);
+    else if(b & BUMP_LEFTSIDE) LED_RGB(LED_BLUE);
+    else                       LED_RGB(LED_OFF);
+    Delay_ms(10);
+  }
+  LED_RGB(LED_OFF);
+}
+
+// L3 (503) Centre IR distance -> RGB LED: < 15 cm red, 15-30 cm green,
+//     > 30 cm off.
+// USES    IR (centre), RGB LED
+// METHOD  polling
+// CALLS   IR_Center, LED_RGB
+// PAUSE   main: WaitForStart() before
+// TUNE    the 150 / 300 mm band limits
+// ASK     inclusive or exclusive limits at exactly 15 / 30 cm
+void L3_IRBands(void){
+  int32_t c;
+  while(!StopRequested()){
+    c = IR_Center();
+    if(c < 150)       LED_RGB(LED_RED);
+    else if(c <= 300) LED_RGB(LED_GREEN);
+    else              LED_RGB(LED_OFF);
+    Delay_ms(20);
+  }
+  LED_RGB(LED_OFF);
+}
+
+// L4 (504) SW1 -> forward 2 s, SW2 -> backward 2 s.
+// USES    SW1/SW2, motors
+// METHOD  polling; waits for release plus a 300 ms hand-clear delay before moving
+// CALLS   Button_Read, Move_ms
+// PAUSE   OWN: SW1/SW2 are the inputs (register with ownStart = 1); no
+//         StopRequested here - exit with the hold-both emergency stop
+// TUNE    SPEED_MED, the 2000 ms duration
+// ASK     repeat on every press? distance or time?
+void L4_ButtonMove(void){
+  uint8_t sw;
+  while(1){
+    sw = Button_Read();
+    if(sw == 0) continue;
+    Delay_ms(20);
+    while(Button_Read()){}                   // wait for release, then move
+    Delay_ms(300);                           // hand clear
+    if(sw & SW1)      Move_ms( SPEED_MED,  SPEED_MED, 2000);
+    else if(sw & SW2) Move_ms(-SPEED_MED, -SPEED_MED, 2000);
+  }
+}
+
+// L5 (505) Move forward, stop immediately when any bump is pressed.
+// USES    bumps, motors, RGB LED (red = stopped by a bump)
+// METHOD  polling
+// CALLS   Drive, Bump_Now, Stop, LED_RGB
+// PAUSE   main: WaitForStart() before
+// TUNE    SPEED_MED
+// ASK     back up / turn afterwards?
+void L5_DriveUntilBump(void){
+  Drive(SPEED_MED, SPEED_MED);
+  while(!Bump_Now()){ if(StopRequested()) return; }
+  Stop();
+  LED_RGB(LED_RED);                          // show it stopped because of a bump
+}
+
+// L6 (506) Forward exactly 30 cm (variant: turn 90 left on the spot).
+// USES    motors, tachometer
+// METHOD  polling (encoder counts inside Move_mm)
+// CALLS   Move_mm(300), variant Turn_deg(-90)
+// PAUSE   main: WaitForStart() before
+// TUNE    DIST_CAL_PCT / TURN_CAL_PCT in Toolkit.h
+// ASK     forward then turn, or turn instead?
+void L6_Forward30cm(void){
+  Move_mm(300, SPEED_MED, 0);
+  // variant: Turn_deg(-90, TURN_SPEED);
+}
+
+// L7 (507) Print the number (0-5) of the pressed bump on serial, once per press.
+// USES    bumps, serial
+// METHOD  polling with debounce; new press = now && !prev
+// CALLS   Bump_Stable, Bump_LowestIndex, Ser_Str, Ser_Dec
+// PAUSE   main: WaitForStart() before
+// ASK     several bumps at once: lowest number only, or all?
+void L7_WhichBumpSerial(void){
+  uint8_t now, prev = 0;
+  while(!StopRequested()){
+    now = Bump_Stable();
+    if(now && !prev){                        // new press only
+      Ser_Str("Bump "); Ser_Dec(Bump_LowestIndex(now)); Ser_NL();
+    }
+    prev = now;
+  }
+}
+
+// L8 (508) Show how many reflectance sensors see black, in binary on the LEDs.
+// USES    reflectance, RGB LED (bits 0-2) + LED1 (bit 3)
+// METHOD  polling
+// CALLS   Line_Read, Count_Ones, LED_ShowNumber
+// PAUSE   main: WaitForStart() before
+// ASK     which LEDs to use; count of black or of white
+void L8_CountBlackSensors(void){
+  while(!StopRequested()){
+    LED_ShowNumber(Count_Ones(Line_Read()));  // 0-8 -> RGB bits0-2 + LED1 bit3
+    Delay_ms(20);
+  }
+  LED_ShowNumber(0);
+}
+
+// L9 (509) Cycle the RGB LED red -> green -> blue every 0.5 s; SW1 pauses and
+//     resumes.
+// USES    SW1, RGB LED
+// METHOD  polling; non-blocking timing from Millis
+// CALLS   Button_Read, LED_RGB
+// PAUSE   OWN: SW1 is an input (register with ownStart = 1); exit with the
+//         hold-both emergency stop
+// TUNE    the 500 ms step
+// ASK     does the colour hold or restart the 0.5 s when resumed
+void L9_ColourCycle(void){
+  const uint8_t colours[3] = {LED_RED, LED_GREEN, LED_BLUE};
+  uint8_t i = 0, paused = 0;
+  uint32_t tNext = Millis + 500;
+  LED_RGB(colours[0]);
+  while(1){
+    if(Button_Read() & SW1){
+      Delay_ms(20); while(Button_Read() & SW1){}  Delay_ms(20);
+      paused = !paused;
+      tNext = Millis + 500;                  // restart the half-second on resume
+    }
+    if(!paused && (int32_t)(Millis - tNext) >= 0){
+      i = (i + 1) % 3;
+      LED_RGB(colours[i]);
+      tNext += 500;
+    }
+  }
+}
+
+// L10 (510) Count SW1 presses and show the count in binary on the LEDs; SW2
+//     resets it to 0.
+// USES    SW1/SW2, RGB LED + LED1, serial
+// METHOD  polling with debounce; both-held is ignored (emergency stop)
+// CALLS   Button_Read, LED_ShowNumber, Ser_Dec
+// PAUSE   OWN: SW1/SW2 are the inputs (register with ownStart = 1)
+// ASK     wrap at 15 (4 LEDs) or keep counting
+void L10_ButtonCounter(void){
+  uint8_t count = 0, sw;
+  LED_ShowNumber(0);
+  while(1){
+    sw = Button_Read();
+    if(sw == 0) continue;
+    Delay_ms(20);
+    sw = Button_Read();
+    if(sw == (SW1 | SW2)) continue;          // leave both-held to the emergency stop
+    while(Button_Read()){}  Delay_ms(20);
+    if(sw & SW1) count = (count + 1) & 0x0F; // 4 LEDs -> 0..15
+    if(sw & SW2) count = 0;
+    LED_ShowNumber(count);
+    Ser_Str("count = "); Ser_Dec(count); Ser_NL();
+  }
+}
+
+// L11 (511) Bump pressed -> print its number in binary on serial (Bump3 -> 011)
+//     plus the 6-bit pattern (Bump3 -> 001000). No library.
+// USES    bumps, serial
+// METHOD  polling with debounce; new press = now && !prev
+// CALLS   Bump_Stable, Bump_LowestIndex, Num_ToBin, Ser_Str
+// PAUSE   main: WaitForStart() before
+// ASK     width of the number (3 bits) and of the pattern (6 bits)
+void L11_BumpBinary(void){
+  uint8_t now, prev = 0;
+  char bin[7];
+  while(!StopRequested()){
+    now = Bump_Stable();
+    if(now && !prev){
+      Num_ToBin(Bump_LowestIndex(now), bin, 3);
+      Ser_Str("Bump number: "); Ser_Str(bin);
+      Num_ToBin(now, bin, 6);
+      Ser_Str("   pattern: "); Ser_Str(bin); Ser_NL();
+    }
+    prev = now;
+  }
+}

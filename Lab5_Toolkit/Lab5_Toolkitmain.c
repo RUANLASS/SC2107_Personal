@@ -65,6 +65,17 @@ static const TaskEntry Table[] = {
 //  {408, Task408_LED_UDC, 0},
   {409, Task409_SumDiff, 0},
 //  {410, Task410_NumDrive, 0}
+  {501, L1_BlinkOnSensor1,    0},
+  {502, L2_BumpSideLED,       0},
+  {503, L3_IRBands,           0},
+  {504, L4_ButtonMove,        1},
+  {505, L5_DriveUntilBump,    0},
+  {506, L6_Forward30cm,       0},
+  {507, L7_WhichBumpSerial,   0},
+  {508, L8_CountBlackSensors, 0},
+  {509, L9_ColourCycle,       1},
+  {510, L10_ButtonCounter,    1},
+  {511, L11_BumpBinary,       0},
 };
 
 

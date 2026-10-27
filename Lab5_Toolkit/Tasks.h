@@ -45,4 +45,17 @@ static uint8_t EnterNumber(const char *label);
 void Task409_SumDiff(void);
 //void Task410_NumDrive(){}
 
+// L-task practice
+void L1_BlinkOnSensor1(void);
+void L2_BumpSideLED(void);
+void L3_IRBands(void);
+void L4_ButtonMove(void);
+void L5_DriveUntilBump(void);
+void L6_Forward30cm(void);
+void L7_WhichBumpSerial(void);
+void L8_CountBlackSensors(void);
+void L9_ColourCycle(void);
+void L10_ButtonCounter(void);
+void L11_BumpBinary(void);
+
 #endif

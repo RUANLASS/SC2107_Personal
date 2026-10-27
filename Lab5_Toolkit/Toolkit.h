@@ -93,7 +93,7 @@ void Delay_ms(uint32_t ms);           // accurate, uses Millis
 uint8_t Button_Read(void);            // 0, SW1, SW2 or SW1|SW2 (live)
 uint8_t WaitForButton(uint8_t mask);  // blink LED1, wait press+release, return which
 uint8_t WaitForStart(void);           // Stop, WaitForButton(SW1|SW2), START_DELAY_MS
-void    TimedPause(uint32_t time);    // course version: run 'time' ms, stop, wait SW
+uint8_t    TimedPause(uint32_t time);    // course version: run 'time' ms, stop, wait SW
 uint8_t StopRequested(void);          // 1 if SW1/SW2 pressed (waits for release)
 
 // ================================ LEDs =====================================
@@ -136,6 +136,9 @@ extern volatile int32_t SpeedL_mms, SpeedR_mms;  // wheel speed, updated every 1
 typedef uint8_t (*Cond_t)(void);
 uint8_t Move_mm(int32_t mm, uint16_t duty, Cond_t cond); // + forward, - backward
 void    Turn_deg(int32_t deg, uint16_t duty);           // + right, - left (pivot)
+#define WHEEL_LEFT   0
+#define WHEEL_RIGHT  1
+void    Wheel_Turn_deg(uint8_t wheel, int32_t deg, uint16_t duty); // spin ONE wheel; + forward, - backward
 void    Drive_AtSpeed(int32_t mm_per_s, uint32_t ms);   // closed-loop speed
 
 // Ready-made stop conditions for Move_mm
